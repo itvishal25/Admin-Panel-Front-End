@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Box, Link } from '@mui/material';
-
+import '../Registration/register.css'
 const Registration = ({ onLoginClick }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
