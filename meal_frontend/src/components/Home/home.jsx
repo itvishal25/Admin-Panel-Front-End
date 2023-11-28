@@ -1,11 +1,16 @@
 import React from 'react'
+import Navbar from '../widgets/Navbar/navbar'
+import Calendar from './calendar'
+// import Register from '../Registration/register'
 
-const home = () => {
+
+const Home = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <Navbar/>
+      <Calendar/>
     </div>
   )
 }
 
-export default home
+export default Home
