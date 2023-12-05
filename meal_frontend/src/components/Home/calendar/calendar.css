@@ -1,0 +1,12 @@
+/* For screens smaller than 576px (e.g., mobile phones) */
+@media (max-width: 575px) {
+    .calendar-page {
+      flex-direction: column; /* Stack components vertically on small screens */
+    }
+  
+    .calendar-container {
+      width: 100%; /* Full width for the calendar */
+      margin-bottom: 20px; /* Add some space between calendar and sidebar */
+    }
+  }
+  

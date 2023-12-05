@@ -5,7 +5,7 @@ import { Container, Nav, Navbar, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo-white.svg";
 import bellIcon from "../../images/211694_bell_icon.svg";
-import userIcon from "../../images/admin.svg";
+// import userIcon from "../../images/admin.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css"; // Import the CSS file
 
@@ -55,11 +55,7 @@ const CustomNavbar = () => {
                 />
               </Nav.Link>
               <Nav.Link href="#" onClick={handleDrawerShow}>
-                <img
-                  src={userIcon}
-                  alt="User Profile"
-                  className="user-icon"
-                />
+
                 <span className="user-name">Admin</span>
               </Nav.Link>
             </Nav>
