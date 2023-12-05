@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -10,27 +10,22 @@ import Sidebar from './components/widgets/Sidebar/sidebar';
 import Footer from './components/widgets/Footer/footer';
 
 // Pages
-import Employees from './components/pages/employees';
-import NewEmp from './components/pages/newEmp';
-import NonEmployees from './components/pages/nonEmployees';
+// import Employees from './components/pages/employees';
+// import NewEmp from './components/pages/newEmp';
+// import NonEmployees from './components/pages/nonEmployees';
 import BookingList from './components/pages/bookingList';
 import Logout from './components/pages/logout';
 import ForgotPassword from './components/pages/forgotpassword';
-import Calendar from './components/Home/calendar';
+import Calendar from './components/Home/calendar/calendar';
 
 // Mode
-import Mode from './components/pages/mode';
-import BookingSideBar from './components/widgets/Sidebar/BookingSidebar/bookingSidebar';
+import BookingSideBar from './components/widgets/BookingSidebar/bookingSidebar';
+import EmployeeTable from './components/TablesData/employeeTable';
 
 const App = () => {
-  const [nightMode, setNightMode] = useState(false);
-
-  const toggleNightMode = () => {
-    setNightMode((prevNightMode) => !prevNightMode);
-  };
-
+  
   return (
-    <div className={nightMode ? 'night-mode' : 'day-mode'}>
+    <div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,9 +33,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="/newEmp" element={<NewEmp />} />
-          <Route path="/nonEmployees" element={<NonEmployees />} />
+          {/* <Route path="/employees" element={<Employees />} /> */}
+          {/* <Route path="/newEmp" element={<NewEmp />} /> */}
+          {/* <Route path="/nonEmployees" element={<NonEmployees />} /> */}
           <Route path="/bookingList" element={<BookingList />} />
           <Route path="/calendar" element={<Calendar />} />
 
@@ -48,8 +43,12 @@ const App = () => {
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/addBooking" element={<BookingSideBar />} />
           <Route path="/footer" element={<Footer />} />
+
+          {/* For table data */}
+
+          <Route path="/employeeTable" element={<EmployeeTable />} />
+        
         </Routes>
-        <Mode nightMode={nightMode} toggleNightMode={toggleNightMode} />
       </Router>
     </div>
   );

@@ -1,10 +1,12 @@
-// Calendar.js
+// CalendarPage.js
 import React, { useState } from 'react';
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Modal, Button } from 'react-bootstrap';
-// import Sidebar from '../widgets/Sidebar/sidebar'; // Assuming you have a Sidebar component
+import Sidebar from '../../widgets/Sidebar/sidebar'; // Import your Sidebar component
+import CustomNavbar from '../../widgets/Navbar/navbar';
+import './calendar.css'
 
 const CalendarPage = () => {
   const localizer = momentLocalizer(moment);
@@ -36,12 +38,11 @@ const CalendarPage = () => {
   };
 
   return (
+    <div>
+      <CustomNavbar/>
     <div style={{ display: 'flex', marginTop: '100px', padding: '20px' }}>
-      {/* Sidebar on the left */}
-      {/* <Sidebar /> */}
-
-      {/* Calendar on the right */}
-      <div style={{ flex: 1, marginLeft: '20px' }}>
+      {/* Calendar on the left */}
+      <div style={{ flex: 1, width: '100%', marginBottom: '20px' }}>
         <BigCalendar
           localizer={localizer}
           events={events}
@@ -71,6 +72,12 @@ const CalendarPage = () => {
           </div>
         )}
       </div>
+
+      {/* Sidebar on the right */}
+      <div style={{ width: '20%' }}>
+        <Sidebar />
+      </div>
+    </div>
     </div>
   );
 };
