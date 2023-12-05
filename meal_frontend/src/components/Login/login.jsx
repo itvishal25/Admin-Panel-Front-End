@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
 import { useFormik } from "formik";
 import backgroundImageB from "../images/loginbg.jpg"; // Make sure to import your background image
+import logo from "../images/logo1.png";
 import "./login.css";
 
 const Login = () => {
@@ -67,7 +68,7 @@ const Login = () => {
               <Col xs={12} className="text-center mb-4">
                 {/* Static Image */}
                 <Image
-                  src="path_to_your_image" // Replace with the actual path to your image
+                  src={logo} // Replace with the actual path to your image
                   alt="Logo"
                   height="80"
                   className="d-inline-block align-text-top"

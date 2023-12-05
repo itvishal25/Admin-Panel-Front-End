@@ -4,8 +4,9 @@ import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Modal, Button } from 'react-bootstrap';
+// import Sidebar from '../widgets/Sidebar/sidebar'; // Assuming you have a Sidebar component
 
-const Calendar = () => {
+const CalendarPage = () => {
   const localizer = momentLocalizer(moment);
 
   // Sample events
@@ -35,37 +36,43 @@ const Calendar = () => {
   };
 
   return (
-    <div style={{ marginTop: '20px', padding: '20px' }}>
-      <BigCalendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 500 }}
-        onSelectEvent={handleEventClick}
-      />
+    <div style={{ display: 'flex', marginTop: '100px', padding: '20px' }}>
+      {/* Sidebar on the left */}
+      {/* <Sidebar /> */}
 
-      {/* Modal to show event details */}
-      {selectedEvent && (
-        <div>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>{selectedEvent.title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <p>Start: {moment(selectedEvent.start).format('LLLL')}</p>
-              <p>End: {moment(selectedEvent.end).format('LLLL')}</p>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
-      )}
+      {/* Calendar on the right */}
+      <div style={{ flex: 1, marginLeft: '20px' }}>
+        <BigCalendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 500 }}
+          onSelectEvent={handleEventClick}
+        />
+
+        {/* Modal to show event details */}
+        {selectedEvent && (
+          <div>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>{selectedEvent.title}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>Start: {moment(selectedEvent.start).format('LLLL')}</p>
+                <p>End: {moment(selectedEvent.end).format('LLLL')}</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Calendar;
+export default CalendarPage;

@@ -1,0 +1,31 @@
+/* style.css */
+
+.full-line {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.add-booking-button {
+  position: absolute;
+  top: 10px; /* Adjust the top distance as needed */
+  right: 10px; /* Adjust the right distance as needed */
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+  /* Adjust styles for smaller screens (mobile) */
+  .full-line {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Adjust styles for medium screens (tablets) */
+  .full-line {
+    margin-top: 8px;
+    margin-bottom: 15px;
+  }
+}

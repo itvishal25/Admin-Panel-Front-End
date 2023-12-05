@@ -1,82 +1,46 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import { Container, Row, Col, Badge } from 'react-bootstrap';
-
-const fetchData = async () => {
-  // Your logic to fetch data goes here
-  // For now, let's just return some dummy data
-  return {
-    bookings: 10,
-    employees: 5,
-    nonEmployees: 3,
-    buffet: 2,
-  };
-};
+// Sidebar.jsx
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./sidebar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
-  const { data, isLoading } = useQuery('sidebarData', fetchData);
+  const currentDate = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = currentDate.toLocaleDateString('en-US', options);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  const numberOfEmployees = 42; // Replace with the actual number of employees
+  const numberOfNonEmployees = 20; // Replace with the actual number of non-employees
+  const numberOfAddEmployees = 15; // Replace with the actual number of added employees
+  const numberOfBuffer = 8; // Replace with the actual number for buffer
 
   return (
-    <Container className="mt-4">
-      <div style={{ backgroundColor: '#f8f9fa', padding: '20px', borderRadius: '10px' }}>
-        <Row>
-          <Col>
-            <div className="text-center">
-              <h5>{/* Week Name */}</h5>
-              <p>
-                {new Date().toLocaleDateString('en-US', {
-                  weekday: 'long',
-                })}
-              </p>
-              <p>
-                {new Date().toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </p>
-            </div>
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col>
-            <div className="text-center">
-              <h6>Bookings</h6>
-              <Badge variant="primary">{data.bookings}</Badge>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div className="text-center">
-              <h6>Employees</h6>
-              <Badge variant="success">{data.employees}</Badge>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div className="text-center">
-              <h6>Non-Employees</h6>
-              <Badge variant="danger">{data.nonEmployees}</Badge>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div className="text-center">
-              <h6>Buffet</h6>
-              <Badge variant="warning">{data.buffet}</Badge>
-            </div>
-          </Col>
-        </Row>
+    <div className="sidebar">
+      <div className="date">
+        <p>{formattedDate}</p>
       </div>
-    </Container>
+      <div className="horizontal-section" onClick={() => alert("Employees clicked!")}>
+        <FontAwesomeIcon icon={faPlus} className="icon plus-icon" />
+        <h5>Employees</h5>
+        <div className="number">{numberOfEmployees}</div>
+      </div>
+      <div className="horizontal-section" onClick={() => alert("Non-Employees clicked!")}>
+        <FontAwesomeIcon icon={faPlus} className="icon plus-icon" />
+        <h5>Non-Employees</h5>
+        <div className="number">{numberOfNonEmployees}</div>
+      </div>
+      <div className="horizontal-section" onClick={() => alert("Add Employees clicked!")}>
+        <FontAwesomeIcon icon={faPlus} className="icon plus-icon" />
+        <h5>Add Employees</h5>
+        <div className="number">{numberOfAddEmployees}</div>
+      </div>
+      <div className="horizontal-section" onClick={() => alert("Buffer clicked!")}>
+        <FontAwesomeIcon icon={faPlus} className="icon plus-icon" />
+        <h5>Buffer</h5>
+        <div className="number">{numberOfBuffer}</div>
+      </div>
+    </div>
   );
 };
 

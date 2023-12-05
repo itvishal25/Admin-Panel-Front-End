@@ -1,3 +1,92 @@
-.bg-dark{
-    background-color: blue;
+/* CustomNavbar.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+/* Reset some default margin and padding */
+body, h1, h2, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #0a1f33;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure the navbar is on top of other elements */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+/* Toggler styles - assuming it's a button */
+.Toggler-basic {
+  background-color: darksalmon;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Other icons and user styles */
+.bellIcon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: white;
+}
+
+.user-name {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar-brand {
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    margin-top: 10px;
+  }
+}
+
+/* Day/Night Mode styles */
+.night-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+.day-mode {
+  background-color: #fff;
+  color: #000;
 }

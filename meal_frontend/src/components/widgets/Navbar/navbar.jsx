@@ -1,86 +1,89 @@
-// Navbar.jsx
+// CustomNavbar.js
+
 import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import NavbarBootstrap from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo1.png"; // Replace with the actual path to your logo
+import logo from "../../images/logo-white.svg";
+import bellIcon from "../../images/211694_bell_icon.svg";
+import userIcon from "../../images/admin.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './navbar.css';
+import "./navbar.css"; // Import the CSS file
 
-const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("");
+const CustomNavbar = () => {
+  const [showDrawer, setShowDrawer] = useState(false);
 
-  const handleSelect = (selectedKey) => {
-    setActiveLink(selectedKey);
+  const handleDrawerShow = () => setShowDrawer(true);
+  const handleDrawerClose = () => setShowDrawer(false);
+
+  const handleLogout = () => {
+    console.log("Logout logic goes here");
+    handleDrawerClose();
   };
 
   return (
     <>
-      <NavbarBootstrap expand="lg" className="bg-dark" > {/* Use bg-dark for a dark blue background */}
-        <Container>
-          <NavbarBootstrap.Brand
-            as={Link}
-            to="/"
-            onClick={() => setActiveLink("/")}
-            style={{ display: "flex", alignItems: "center", color: "#fff" }}
-          >
+      <Navbar expand="lg" className="navbar" >
+        <Container fluid>
+          <Navbar.Brand as={Link} to="/" className="navbar-brand">
             <img
               src={logo}
               alt="Logo"
-              height="60" // Adjust the height as needed
+              height="60"
               className="d-inline-block align-top"
-              style={{ marginRight: "10px" }} // Add spacing between the logo and text
             />
-            <h2 className="d-inline-block align-text-top" style={{color: "white"}}>Meal Facility</h2>
-          </NavbarBootstrap.Brand>
-          <NavbarBootstrap.Toggle aria-controls="basic-navbar-nav" />
-          <NavbarBootstrap.Collapse id="basic-navbar-nav">
-            <Nav
-              activeKey={activeLink}
-              onSelect={handleSelect}
-              className="me-auto"
-            >
-              <Nav.Link style={{color:"white"}}
-                as={Link}
-                to="/calendar"
-                eventKey="/"
-                onClick={() => setActiveLink("/")}
-              >
-                Home
-              </Nav.Link> 
-              <Nav.Link style={{color:"white"}}
-                as={Link}
-                to="/employees"
-                eventKey="/employees"
-                onClick={() => setActiveLink("/Employees")}
-              >
-                Employees
+            <h2 className="d-inline-block align-text-top">Meal Facility</h2>
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className="Toggler-basic"
+          />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/calendar" className="nav-link">
+                Calendar
               </Nav.Link>
-              <Nav.Link style={{color:"white"}}
-                as={Link}
-                to="/NonEmployees"
-                eventKey="/nonEmployees"
-                onClick={() => setActiveLink("/Non Employees")}
-              >
-               Non Employees
-              </Nav.Link>
-              <Nav.Link style={{color:"white"}}
-                as={Link}
-                to="/NewEmp"
-                eventKey="/newEmp"
-                onClick={() => setActiveLink("/employees")}
-              >
-               Add Employees
+              <Nav.Link as={Link} to="/bookingList" className="nav-link">
+                Booking List
               </Nav.Link>
             </Nav>
             <Nav>
+              <Nav.Link href="#">
+                <img
+                  className="bellIcon"
+                  src={bellIcon}
+                  alt="Notification Bell"
+                />
+              </Nav.Link>
+              <Nav.Link href="#" onClick={handleDrawerShow}>
+                <img
+                  src={userIcon}
+                  alt="User Profile"
+                  className="user-icon"
+                />
+                <span className="user-name">Admin</span>
+              </Nav.Link>
             </Nav>
-          </NavbarBootstrap.Collapse>
+          </Navbar.Collapse>
         </Container>
-      </NavbarBootstrap>
+      </Navbar>
+
+      {/* Drawer Modal */}
+      <Modal show={showDrawer} onHide={handleDrawerClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>User Options</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Choose an option:</p>
+          <Button variant="outline-primary" onClick={handleLogout}>
+            <Link to="/login">Logout</Link>
+          </Button>
+          <Button variant="link" onClick={handleDrawerClose}>
+            <Link to="/forgotpassword">Forgot Password</Link>
+          </Button>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;

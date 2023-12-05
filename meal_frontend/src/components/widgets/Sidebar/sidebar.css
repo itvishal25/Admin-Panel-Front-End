@@ -1,0 +1,39 @@
+/* sidebar.css */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #0a1f33 !important;
+  padding: 10px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.horizontal-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 1.2rem;
+  color: #28a745;
+  margin-right: 10px;
+}
+
+h5 {
+  margin-right: 10px;
+}
+
+.number {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  display: flex;
+}

@@ -1,8 +1,67 @@
-/* Existing styles */
+/* register.css */
 
-.login-content-lt {
-  /* ... other styles ... */
-  background: url('../images/cafeteria1.jpg') no-repeat top center;
+/* Section A */
+.Bg-SignUp {
+  background-color: white;
+  background-image: url('../images/fun-3d-illustration-american-referee.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 80px;
+  image-rendering: pixelated;
+}
+/* Section B */
+.Register-Container {
+  height: 100vh;
+  padding-right: 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 100vh;
+}
+
+/* Logo and Title */
+.Logo-Title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.Logo-Title img {
+
+  height: 80px;
+}
+
+.Logo-Title h1 {
+  color: darkblue;
+  margin-left: 10px;
+}
+
+/* Registration Form */
+.Registration-Form {
+  margin-top: 20px;
+}
+
+.Registration-Form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.Registration-Form p {
+  margin-bottom: 20px;
+}
+
+/* Form Fields */
+.Form-Field {
+  margin-bottom: 20px;
+}
+
+/* Submit Button */
+.Submit-Button {
+  background-color: Blue;
+  color: white;
 }
 
 @media (max-width: 991.98px) {
