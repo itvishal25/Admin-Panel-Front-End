@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import { Container, Nav, Navbar, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BiCalendar, BiListUl, BiUser, BiBuilding, BiPlus } from "react-icons/bi"; // Import icons from react-icons
+import { IoIosNotifications } from "react-icons/io";
 import logo from "../../images/logo-white.svg";
-import bellIcon from "../../images/211694_bell_icon.svg";
-// import userIcon from "../../images/admin.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css"; // Import the CSS file
+import "./navbar.css";
 
 const CustomNavbar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -22,7 +22,7 @@ const CustomNavbar = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="navbar" >
+      <Navbar expand="lg" className="navbar">
         <Container fluid>
           <Navbar.Brand as={Link} to="/" className="navbar-brand">
             <img
@@ -40,22 +40,29 @@ const CustomNavbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/calendar" className="nav-link">
-                Calendar
+                <BiCalendar /> Calendar
               </Nav.Link>
               <Nav.Link as={Link} to="/bookingList" className="nav-link">
-                Booking List
+                <BiListUl /> Booking List
+              </Nav.Link>
+              <Nav.Link as={Link} to="/employeeTable" className="nav-link">
+                <BiUser /> Employees
+              </Nav.Link>
+              <Nav.Link as={Link} to="/nonEmployeeTable" className="nav-link">
+                <BiBuilding /> Non Employees
+              </Nav.Link>
+              <Nav.Link as={Link} to="/addEmployeeTable" className="nav-link">
+                <BiPlus /> Add Employees
+              </Nav.Link>
+              <Nav.Link as={Link} to="/buffer" className="nav-link">
+                <BiBuilding /> Buffer
               </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="#">
-                <img
-                  className="bellIcon"
-                  src={bellIcon}
-                  alt="Notification Bell"
-                />
+                <IoIosNotifications className="bellIcon" />
               </Nav.Link>
               <Nav.Link href="#" onClick={handleDrawerShow}>
-
                 <span className="user-name">Admin</span>
               </Nav.Link>
             </Nav>

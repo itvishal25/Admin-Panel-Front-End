@@ -7,7 +7,9 @@ import Calendar from './calendar/calendar'
 // import EmployeeTable from '../TablesData/employeeTable'
 // import BookingList from '../pages/bookingList'
 // import Register from '../Registration/register'
-
+import withNavbar from '../HOC/withNavbar'
+// import employeeTable from '../TablesData/employeeTable'
+// import EmployeeTable from '../TablesData/employeeTable'
 
 const Home = () => {
   return (
@@ -20,4 +22,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default withNavbar(Home)

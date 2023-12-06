@@ -41,8 +41,9 @@ body {
 
 /* Toggler styles - assuming it's a button */
 .Toggler-basic {
-  background-color: darksalmon;
-  color: white;
+  
+  background-color:#fff;
+  color:gray ;
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -53,6 +54,7 @@ body {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  color:#fff;
 }
 
 .user-icon {
@@ -80,13 +82,5 @@ body {
   }
 }
 
-/* Day/Night Mode styles */
-.night-mode {
-  background-color: #121212;
-  color: #fff;
-}
 
-.day-mode {
-  background-color: #fff;
-  color: #000;
-}
+
