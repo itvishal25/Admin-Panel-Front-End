@@ -3,29 +3,35 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #0a1f33 !important;
+  align-items: flex-start;
+  background-color: #0a1f33;
   padding: 10px;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
   color: #fff;
   border-radius: 10px;
-  margin: 20px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 20px;
+  z-index: 100;
+  width: 200px;
 }
 
-.horizontal-section {
+.section {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: center; /* Align items horizontally */
+  margin-bottom: 15px;
   cursor: pointer;
 }
 
-.plus-icon {
+.icon {
   font-size: 1.2rem;
   color: #28a745;
-  margin-right: 10px;
+  margin-right: 10px; /* Adjust space between icon and label */
 }
 
 h5 {
-  margin-right: 10px;
+  margin: 0; /* Remove default margin */
 }
 
 .number {
@@ -34,49 +40,12 @@ h5 {
   border-radius: 50%;
   padding: 5px 10px;
   font-size: 0.8rem;
-  margin-left: 10px;
-  display: flex;
+  margin-left: auto; /* Push the number to the right */
 }
 
-/* Responsive styles */
-
-/* For screens smaller than 576px (e.g., mobile phones) */
+/* Responsive styles for .section */
 @media (max-width: 575px) {
-  .sidebar {
-    flex-direction: row; /* Change to horizontal layout for small screens */
-    align-items: center; /* Center items horizontally */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    padding: 10px 0; /* Adjust padding */
-  }
-
-  .horizontal-section {
-    margin-right: 10px;
-    margin-bottom: 0;
-  }
-
-  .number {
-    margin-left: 0;
-  }
-}
-
-.sidebar {
-  background-color: #0a1f33 !important;
-  padding: 10px;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-  color: #fff;
-  border-radius: 10px;
-  margin: 20px;
-
-  /* Responsive styles */
-  @media (max-width: 575px) {
-    width: 100%; /* Full width for the sidebar on small screens */
-    margin: 0; /* Remove margin on small screens */
-  }
-}
-
-/* For screens between 576px and 767px (e.g., tablets in portrait mode) */
-@media (min-width: 576px) and (max-width: 767px) {
-  .sidebar {
-    /* Add specific styles for tablets if needed */
+  .section {
+    margin-bottom: 10px;
   }
 }

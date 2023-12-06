@@ -3,8 +3,8 @@
 import React from 'react';
 import { Container, Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
 import '../styles/style.css';
-import CustomNavbar from '../widgets/Navbar/navbar';
 import withNavbar from '../HOC/withNavbar';
+import CustomNavbar from '../widgets/Navbar/navbar';
 
 const BookingList = () => {
   return (
@@ -45,4 +45,4 @@ const BookingList = () => {
   );
 };
 
-export default BookingList(withNavbar);
+export default withNavbar(BookingList);

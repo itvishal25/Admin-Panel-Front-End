@@ -21,6 +21,8 @@ import Calendar from './components/Home/calendar/calendar';
 // Mode
 import BookingSideBar from './components/widgets/BookingSidebar/bookingSidebar';
 import EmployeeTable from './components/TablesData/employeeTable';
+import NonEmployeeTable from './components/TablesData/nonEmployeeTable';
+import NewEmployeeTable from './components/TablesData/newEmployeeTable';
 
 const App = () => {
   
@@ -47,6 +49,9 @@ const App = () => {
           {/* For table data */}
 
           <Route path="/employeeTable" element={<EmployeeTable />} />
+          <Route path="/nonEmployeeTable" element={<NonEmployeeTable />} />
+          <Route path="/addEmployeeTable" element={<NewEmployeeTable />} />
+
         
         </Routes>
       </Router>

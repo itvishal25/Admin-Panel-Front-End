@@ -12,7 +12,7 @@ const Register = () => {
     lastName: "",
     email: "",
     employeeId: "",
-    departmentName: "",
+    phoneNumber: "",
   };
 
   const validationSchema = Yup.object({
@@ -20,7 +20,7 @@ const Register = () => {
     lastName: Yup.string().required("Last Name is required"),
     email: Yup.string().email("Invalid email address").required("Email is required"),
     employeeId: Yup.string().required("Employee ID is required"),
-    departmentName: Yup.string().required("Department Name is required"),
+    phoneNumber: Yup.string().required("Phone Number is required"),
   });
 
   const onSubmit = (values) => {
@@ -80,9 +80,9 @@ const Register = () => {
                     </div>
 
                     <div className="mb-2 Form-Field">
-                      <label htmlFor="departmentName">Department Name</label>
-                      <Field type="text" id="departmentName" name="departmentName" className="form-control" />
-                      <ErrorMessage name="departmentName" component="div" className="text-danger" />
+                      <label htmlFor="phoneNumber">Phone Number</label>
+                      <Field type="text" id="phoneNumber" name="phoneNumber" className="form-control" />
+                      <ErrorMessage name="phoneNumber" component="div" className="text-danger" />
                     </div>
 
                     <Button variant="primary" type="submit" className="mt-3 Submit-Button">
