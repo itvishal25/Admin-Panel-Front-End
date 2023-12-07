@@ -1,7 +1,7 @@
 // HOC/withNavbar.js
 
 import React from 'react';
-import CustomNavbar from '../HOC/withNavbar';
+import CustomNavbar from '../widgets/Navbar/navbar';
 
 const withNavbar = (WrappedComponent) => {
   return class extends React.Component {

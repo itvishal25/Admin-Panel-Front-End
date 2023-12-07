@@ -28,7 +28,6 @@ const NewEmployeeTable = () => {
   return (
     <div className="new-employee-table-container">
       {/* CustomNavbar outside the container */}
-      <CustomNavbar />
       <div className="content-container">
         <h2>New Employee Table</h2>
         <Table striped bordered hover className="custom-table">

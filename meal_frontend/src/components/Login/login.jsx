@@ -1,39 +1,75 @@
-// Login.js
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
-import { useFormik } from "formik";
+import { useFormik, Formik } from "formik";
+import axios from 'axios';
+
 import backgroundImageB from "../images/loginbg.jpg"; // Make sure to import your background image
 import logo from "../images/logo1.png";
 import "./login.css";
 
 const Login = () => {
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-      rememberMe: false,
-    },
-    // Validation logic (adjust as needed)
-    validate: (values) => {
-      const errors = {};
+  // const [data, setData] = useState([])
+  const handleSubmit = async (form, values) => {
+    console.log(form);
+    let data = JSON.stringify({
+      "userName": form.username,
+      "password": form.password
+    });
 
-      if (!values.username) {
-        errors.username = "Required";
-      }
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:5000/user/adminLogin',
+      headers: {
+        'Content-Type': 'application/json',
+        // "Authorization": localStorage.getItem("token")
+      },
+      data: data
+    };
+    console.log(form);
 
-      if (!values.password) {
-        errors.password = "Required";
-      }
+    await axios.request(config)
+      .then((response) => {
+        localStorage.setItem("token", response.data.data);
+        window.location.href = "/"
+        // setData(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-      return errors;
-    },
-    onSubmit: (values) => {
-      // You can add your login logic here
-      console.log("Form data submitted:", values);
-    },
-  });
+  //get data and show in table
+  // useEffect(() => {
+  //   getData()
+  // })
+
+  // const formik = useFormik({
+  //   initialValues: {
+  //     username: "",
+  //     password: "",
+  //     rememberMe: false,
+  //   },
+  //   // Validation logic (adjust as needed)
+  //   validate: (values) => {
+  //     const errors = {};
+
+  //     if (!values.username) {
+  //       errors.username = "Required";
+  //     }
+
+  //     if (!values.password) {
+  //       errors.password = "Required";
+  //     }
+
+  //     return errors;
+  //   },
+  //   onSubmit: (values) => {
+  //     // You can add your login logic here
+  //     console.log("Form data submitted:", values);
+  //   },
+  // });
 
   return (
     <div>
@@ -87,71 +123,75 @@ const Login = () => {
                 <h2 className="mb-3" style={{ fontSize: "1.5rem" }}>
                   Login to your account
                 </h2>
-                <Form onSubmit={formik.handleSubmit}>
-                  {/* Username Field */}
-                  <Form.Group controlId="username">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="username"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.username}
-                    />
-                    {formik.touched.username && formik.errors.username ? (
-                      <div className="text-danger">
-                        {formik.errors.username}
-                      </div>
-                    ) : null}
-                  </Form.Group>
+                <Formik 
+                  onSubmit={handleSubmit}
+                  validate={values => {
+                    const errors = {};
+                    if (!values.email) {
+                      errors.email = 'Required';
+                    } else if (
+                      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                    ) {
+                      errors.email = 'Invalid email address';
+                    }
+                    return errors;
+                  }}
+                  initialValues={{ username: '', password: '' }}
+                >
+                  {({ handleChange, handleSubmit, handleBlur, values, errors }) => (
+                    <form onSubmit={handleSubmit}>
+                      {/* Username Field */}
+                      <Form.Group controlId="username">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="username"
+                          name="username"
+                          onChange={(e) => {
+                            console.log(e);
+                            handleChange(e)
+                          }}
+                        />
+                      </Form.Group>
 
-                  {/* Password Field */}
-                  <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="password"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.password}
-                    />
-                    {formik.touched.password && formik.errors.password ? (
-                      <div className="text-danger">
-                        {formik.errors.password}
-                      </div>
-                    ) : null}
-                  </Form.Group>
+                      {/* Password Field */}
+                      <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                          type="password"
+                          placeholder="password"
+                          name="password"
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
 
-                  {/* Remember Me Checkbox */}
-                  <Form.Group controlId="rememberMe" className="mb-3">
-                    <Form.Check
-                      type="checkbox"
-                      label="Remember me"
-                      onChange={formik.handleChange}
-                      checked={formik.values.rememberMe}
-                    />
-                  </Form.Group>
+                      {/* Remember Me Checkbox */}
+                      <Form.Group controlId="rememberMe" className="mb-3">
+                        <Form.Check
+                          type="checkbox"
+                          label="Remember me"
+                        />
+                      </Form.Group>
 
-                  {/* Forgot Password Link */}
-                  <Form.Group controlId="forgetPassword" className="mb-3">
-                    <Link to="/forgotpassword">Forgot Password?</Link>
-                  </Form.Group>
+                      {/* Forgot Password Link */}
+                      <Form.Group controlId="forgetPassword" className="mb-3">
+                        <Link to="/forgotpassword">Forgot Password?</Link>
+                      </Form.Group>
 
-                  {/* Login Button */}
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    className="mt-3"
-                    style={{ backgroundColor: "blue" }}
-                  >
-                    <Link
-                      to="/"
-                      style={{ color: "white", textDecoration: "none" }}
-                    >
-                      Login
-                    </Link>
-                  </Button>
-                </Form>
+                      {/* Login Button */}
+                      <Button onClick={handleSubmit}
+                        variant="primary"
+                        type="submit"
+                        className="mt-3"
+                        style={{ backgroundColor: "blue" }}
+                      >
+
+                        Login
+                      </Button>
+                    </form>
+                  )}
+
+                </Formik>
               </Col>
             </Row>
           </Col>

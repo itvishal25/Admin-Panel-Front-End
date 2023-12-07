@@ -3,22 +3,37 @@
 import React, { useState } from "react";
 import { Container, Nav, Navbar, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { BiCalendar, BiListUl, BiUser, BiBuilding, BiPlus } from "react-icons/bi"; // Import icons from react-icons
+import { BiCalendar, BiListUl, BiUser, BiBuilding, BiPlus } from "react-icons/bi";
 import { IoIosNotifications } from "react-icons/io";
 import logo from "../../images/logo-white.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
+import { BsList } from "react-icons/bs";
+import PopupBox from '../../pages/buffer'; // Import PopupBox component
 
 const CustomNavbar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
+  const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [showBufferPopup, setShowBufferPopup] = useState(false); // New state for Buffer Popup
 
   const handleDrawerShow = () => setShowDrawer(true);
   const handleDrawerClose = () => setShowDrawer(false);
+
+  const handleNotificationModalShow = () => setShowNotificationModal(true);
+  const handleNotificationModalClose = () => setShowNotificationModal(false);
+
+  const handleBufferPopupShow = () => setShowBufferPopup(true);
+  const handleBufferPopupClose = () => setShowBufferPopup(false);
 
   const handleLogout = () => {
     console.log("Logout logic goes here");
     handleDrawerClose();
   };
+
+  // Example counts (replace with actual counts)
+  const employeesCount = 100;
+  const nonEmployeesCount = 50;
+  const guestCount = 20;
 
   return (
     <>
@@ -36,7 +51,9 @@ const CustomNavbar = () => {
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             className="Toggler-basic"
-          />
+          >
+            <BsList className="hamburger-icon" />
+          </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/calendar" className="nav-link">
@@ -51,16 +68,25 @@ const CustomNavbar = () => {
               <Nav.Link as={Link} to="/nonEmployeeTable" className="nav-link">
                 <BiBuilding /> Non Employees
               </Nav.Link>
-              <Nav.Link as={Link} to="/addEmployeeTable" className="nav-link">
-                <BiPlus /> Add Employees
+              <Nav.Link as={Link} to="/newBooking" className="nav-link">
+                <BiPlus /> Bookings
               </Nav.Link>
-              <Nav.Link as={Link} to="/buffer" className="nav-link">
+              {/* Buffer Section */}
+              <Nav.Link
+                as={Link}
+                to="/"
+                className="nav-link"
+                onClick={handleBufferPopupShow}
+              >
                 <BiBuilding /> Buffer
               </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="#">
-                <IoIosNotifications className="bellIcon" />
+                <IoIosNotifications
+                  className="bellIcon"
+                  onClick={handleNotificationModalShow}
+                />
               </Nav.Link>
               <Nav.Link href="#" onClick={handleDrawerShow}>
                 <span className="user-name">Admin</span>
@@ -85,6 +111,26 @@ const CustomNavbar = () => {
           </Button>
         </Modal.Body>
       </Modal>
+
+      {/* Notification Modal */}
+      <Modal show={showNotificationModal} onHide={handleNotificationModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Notification</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Employees Count: {employeesCount}</p>
+          <p>Non Employees Count: {nonEmployeesCount}</p>
+          <p>Guest Count: {guestCount}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleNotificationModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Buffer Popup */}
+      <PopupBox show={showBufferPopup} handleClose={handleBufferPopupClose} />
     </>
   );
 };
