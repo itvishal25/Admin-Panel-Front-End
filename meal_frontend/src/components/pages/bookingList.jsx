@@ -4,12 +4,12 @@ import React from 'react';
 import { Container, Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
 import '../styles/style.css';
 import withNavbar from '../HOC/withNavbar';
-import CustomNavbar from '../widgets/Navbar/navbar';
+// import CustomNavbar from '../widgets/Navbar/navbar';
 
 const BookingList = () => {
   return (
     <div>
-      <CustomNavbar/>
+    
       {/* Page Content */}
       <Container className="mt-4">
           {/* Button for Adding Booking */}
