@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import '../styles/style.css'
-import CustomNavbar from '../widgets/Navbar/navbar';
+import withNavbar from '../HOC/withNavbar';
 
 const EmployeeTable = () => {
   const [employeeData, setEmployeeData] = useState([]);
@@ -24,7 +24,6 @@ const EmployeeTable = () => {
 
   return (
     <div className="employee-table-container">
-      <CustomNavbar/>
       <h2>Employee Table</h2>
       <Table striped bordered hover className="custom-table">
         <thead>
@@ -52,4 +51,4 @@ const EmployeeTable = () => {
   );
 };
 
-export default EmployeeTable;
+export default withNavbar(EmployeeTable);

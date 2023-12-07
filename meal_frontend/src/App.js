@@ -19,10 +19,11 @@ import ForgotPassword from './components/pages/forgotpassword';
 import Calendar from './components/Home/calendar/calendar';
 
 // Mode
-import BookingSideBar from './components/widgets/BookingSidebar/bookingSidebar';
+import NewBooking from './components/Booking/newBooking';
 import EmployeeTable from './components/TablesData/employeeTable';
 import NonEmployeeTable from './components/TablesData/nonEmployeeTable';
 import NewEmployeeTable from './components/TablesData/newEmployeeTable';
+import Buffer from './components/pages/buffer';
 
 const App = () => {
   
@@ -39,11 +40,13 @@ const App = () => {
           {/* <Route path="/newEmp" element={<NewEmp />} /> */}
           {/* <Route path="/nonEmployees" element={<NonEmployees />} /> */}
           <Route path="/bookingList" element={<BookingList />} />
+          <Route path="/newBooking" element={<NewBooking />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/buffer" element={<Buffer />} />
 
           <Route path="/navbar" element={<CustomNavbar />} />
           <Route path="/sidebar" element={<Sidebar />} />
-          <Route path="/addBooking" element={<BookingSideBar />} />
+          {/* <Route path="/addBooking" element={<BookingSideBar />} /> */}
           <Route path="/footer" element={<Footer />} />
 
           {/* For table data */}

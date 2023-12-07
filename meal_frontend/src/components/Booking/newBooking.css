@@ -1,0 +1,30 @@
+/* bookingSidebar.css */
+
+.sidebar-box {
+    height: 80%;
+    width: 80%;
+    position: fixed;
+    top: 55%; /* Center the box at the top */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8f9fa;
+    border-radius: 15px; /* Set the desired radius */
+    padding: 20px; /* Add padding if needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow */
+  }
+  
+  /* Add media queries for responsiveness */
+  @media (max-width: 768px) {
+    .sidebar-box {
+      width: 90%; /* Adjust width for smaller screens */
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .sidebar-box {
+      width: 95%; /* Adjust width for even smaller screens */
+      font-size: 1em;
+    }
+  }
+  

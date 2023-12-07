@@ -42,10 +42,11 @@ body {
 /* Toggler styles - assuming it's a button */
 .Toggler-basic {
   
-  background-color:#fff;
-  color:gray ;
+  background-color:#0a1f33;
+  color:white ;
   border: none;
   padding: 10px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -82,5 +83,10 @@ body {
   }
 }
 
+
+.hamburger-icon {
+  color: white;
+  font-size: 1.5rem; /* Adjust the size as needed */
+}
 
 

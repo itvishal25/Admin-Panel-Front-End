@@ -1,8 +1,7 @@
 import React from 'react'
-import Navbar from '../widgets/Navbar/navbar'
 // import Calendar from './calendar'
 // import Sidebar from '../widgets/Sidebar/sidebar'
-// import Footer from '../widgets/Footer/footer'
+import Footer from '../widgets/Footer/footer'
 import Calendar from './calendar/calendar'
 // import EmployeeTable from '../TablesData/employeeTable'
 // import BookingList from '../pages/bookingList'
@@ -14,10 +13,9 @@ import withNavbar from '../HOC/withNavbar'
 const Home = () => {
   return (
     <div>
-      <Navbar/>
-      <Calendar/>
+      <Calendar />
       {/* <Sidebar/> */}
-      {/* <Footer/> */}
+      <Footer />
     </div>
   )
 }
