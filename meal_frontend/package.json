@@ -17,6 +17,8 @@
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "build": "^0.1.4",
+    "datepicker": "^0.0.0",
+    "exceljs": "^4.4.0",
     "formik": "^2.4.5",
     "moment": "^2.29.4",
     "normalize.css": "^8.0.1",

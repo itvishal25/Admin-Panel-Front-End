@@ -12,7 +12,7 @@ const Register = () => {
     lastName: "",
     email: "",
     employeeId: "",
-    departmentName: "",
+    phoneNumber: "",
   };
 
   const validationSchema = Yup.object({
@@ -20,14 +20,43 @@ const Register = () => {
     lastName: Yup.string().required("Last Name is required"),
     email: Yup.string().email("Invalid email address").required("Email is required"),
     employeeId: Yup.string().required("Employee ID is required"),
-    departmentName: Yup.string().required("Department Name is required"),
+    phoneNumber: Yup.string().required("Phone Number is required"),
   });
 
-  const onSubmit = (values) => {
-    // You can add your registration logic here
-    console.log("Form data submitted:", values);
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await fetch("http://localhost:3030/user/createNewUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          console.log("Registration successful");
+          setSubmitting(false);
+          // Redirect to login page
+          // You can use `history.push("/login")` or `navigate("/login")`
+        } else {
+          console.error("Registration failed:", data.error);
+          setSubmitting(false);
+          // Display error message to the user
+          // You can use a state variable to store the error message and display it on the page
+        }
+      } else {
+        console.error("Network error:", response.statusText);
+        setSubmitting(false);
+        // Display a generic error message to the user
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      setSubmitting(false);
+      // Display a generic error message to the user
+    }
   };
-
   return (
     <div>
       <Container fluid>
@@ -80,9 +109,9 @@ const Register = () => {
                     </div>
 
                     <div className="mb-2 Form-Field">
-                      <label htmlFor="departmentName">Department Name</label>
-                      <Field type="text" id="departmentName" name="departmentName" className="form-control" />
-                      <ErrorMessage name="departmentName" component="div" className="text-danger" />
+                      <label htmlFor="phoneNumber">Phone Number</label>
+                      <Field type="text" id="phoneNumber" name="phoneNumber" className="form-control" />
+                      <ErrorMessage name="phoneNumber" component="div" className="text-danger" />
                     </div>
 
                     <Button variant="primary" type="submit" className="mt-3 Submit-Button">

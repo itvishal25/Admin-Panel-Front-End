@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import '../styles/style.css'
+import withNavbar from '../HOC/withNavbar';
 
 const EmployeeTable = () => {
   const [employeeData, setEmployeeData] = useState([]);
@@ -50,4 +51,4 @@ const EmployeeTable = () => {
   );
 };
 
-export default EmployeeTable;
+export default withNavbar(EmployeeTable);
