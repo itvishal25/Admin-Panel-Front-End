@@ -23,11 +23,40 @@ const Register = () => {
     phoneNumber: Yup.string().required("Phone Number is required"),
   });
 
-  const onSubmit = (values) => {
-    // You can add your registration logic here
-    console.log("Form data submitted:", values);
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await fetch("http://localhost:3030/user/createNewUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          console.log("Registration successful");
+          setSubmitting(false);
+          // Redirect to login page
+          // You can use `history.push("/login")` or `navigate("/login")`
+        } else {
+          console.error("Registration failed:", data.error);
+          setSubmitting(false);
+          // Display error message to the user
+          // You can use a state variable to store the error message and display it on the page
+        }
+      } else {
+        console.error("Network error:", response.statusText);
+        setSubmitting(false);
+        // Display a generic error message to the user
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      setSubmitting(false);
+      // Display a generic error message to the user
+    }
   };
-
   return (
     <div>
       <Container fluid>

@@ -1,3 +1,5 @@
+// Login.js
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
@@ -73,12 +75,12 @@ const Login = () => {
                   height="80"
                   className="d-inline-block align-text-top"
                 />
-                <h1
-                  className="d-inline-block align-text-top ms-3"
-                  style={{ color: "darkblue" }}
-                >
-                  Meal Facility
-                </h1>
+                <div className="d-inline-block align-text-top ms-3">
+                  <h1 style={{ color: "darkblue", marginBottom: "5px" }}>
+                    Meal Facility
+                  </h1>
+                  {/* You can add a subtitle here if needed */}
+                </div>
               </Col>
               {/* Login Form */}
               <Col xs={12} md={{ span: 10, offset: 2 }} className="px-0">
