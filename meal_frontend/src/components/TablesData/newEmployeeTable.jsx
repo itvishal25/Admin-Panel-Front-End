@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import CustomNavbar from '../widgets/Navbar/navbar';
 import '../styles/style.css';
+import withNavbar from '../HOC/withNavbar';
 
 const NewEmployeeTable = () => {
   const [newEmployeeData, setNewEmployeeData] = useState([]);
@@ -55,4 +55,4 @@ const NewEmployeeTable = () => {
   );
 };
 
-export default NewEmployeeTable;
+export default withNavbar(NewEmployeeTable);

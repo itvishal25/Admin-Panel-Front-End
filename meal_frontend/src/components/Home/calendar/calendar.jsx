@@ -4,14 +4,12 @@ import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Modal, Button } from 'react-bootstrap';
-// import Sidebar from '../../widgets/Sidebar/sidebar'; // Import your Sidebar component
 import CustomNavbar from '../../widgets/Navbar/navbar';
 import './calendar.css';
 
 const CalendarPage = () => {
   const localizer = momentLocalizer(moment);
 
-  // Sample events
   const events = [
     {
       title: 'Event 1',
@@ -41,47 +39,49 @@ const CalendarPage = () => {
     <div>
       <CustomNavbar />
       <div
+        className="container-fluid" // Use Bootstrap container-fluid for a full-width container
         style={{
-          display: 'flex',
           marginTop: '100px',
           padding: '20px',
-          flexDirection: 'column', // Adjust for smaller screens
+          width: '110%'
         }}
       >
-        {/* Calendar on the top */}
-        <div style={{ flex: 1, marginBottom: '20px' }}>
-          <BigCalendar
-            localizer={localizer}
-            events={events}
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: 600 }} // Increase height for a larger calendar
-            onSelectEvent={handleEventClick}
-          />
+        <div className="row">
+          {/* Calendar on the left */}
+          <div className="col-lg-8 col-md-12 mb-4">
+            <BigCalendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              style={{ height: 600 }}
+              onSelectEvent={handleEventClick}
+            />
 
-          {/* Modal to show event details */}
-          {selectedEvent && (
-            <div>
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{selectedEvent.title}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <p>Start: {moment(selectedEvent.start).format('LLLL')}</p>
-                  <p>End: {moment(selectedEvent.end).format('LLLL')}</p>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </div>
-          )}
-        </div>
+            {selectedEvent && (
+              <div>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>{selectedEvent.title}</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <p>Start: {moment(selectedEvent.start).format('LLLL')}</p>
+                    <p>End: {moment(selectedEvent.end).format('LLLL')}</p>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </div>
+            )}
+          </div>
 
-        {/* Sidebar at the bottom for larger screens, or on the right for smaller screens */}
-        <div style={{ width: '100%', flex: 1, order: -1 }}>
+          {/* Sidebar on the right for larger screens */}
+          <div className="col-lg-4 d-none d-lg-block">
+            <sidebar/>
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 // import Calendar from './calendar'
-// import Sidebar from '../widgets/Sidebar/sidebar'
+import Sidebar from '../widgets/Sidebar/sidebar'
 import Footer from '../widgets/Footer/footer'
 import Calendar from './calendar/calendar'
 // import EmployeeTable from '../TablesData/employeeTable'
@@ -14,10 +14,13 @@ const Home = () => {
   return (
     <div>
       <Calendar />
-      {/* <Sidebar/> */}
+      <Sidebar/>
       <Footer />
     </div>
   )
 }
+
+
+
 
 export default withNavbar(Home)

@@ -1,0 +1,16 @@
+/* Home.css */
+/* Custom styles for containers */
+.main-container {
+  margin-top: 20px;
+}
+
+.container-a {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.container-b {
+  background-color: #d3d3d3;
+  padding: 10px;
+}

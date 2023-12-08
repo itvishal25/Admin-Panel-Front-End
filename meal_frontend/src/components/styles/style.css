@@ -1,16 +1,14 @@
 /* style.css */
 
-.full-line {
-  width: 100%;
-  border-top: 1px solid #ddd;
-  margin-top: 10px;
-  margin-bottom: 20px;
+.nav-tabs .nav-link {
+  background-color: transparent;
 }
 
-.add-booking-button {
-  position: absolute;
-  top: 10px; /* Adjust the top distance as needed */
-  right: 10px; /* Adjust the right distance as needed */
+/* Optionally, you can add this CSS to change the appearance when active */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  background-color: #007bff; /* Change to your preferred active background color */
+  color: #fff; /* Change to your preferred active text color */
 }
 
 /* Responsive Styles */
