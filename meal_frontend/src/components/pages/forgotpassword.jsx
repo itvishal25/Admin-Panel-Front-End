@@ -1,3 +1,5 @@
+// ForgotPassword.js
+
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -38,10 +40,25 @@ const ForgotPassword = () => {
     >
       <Container>
         <Row className="justify-content-md-center">
-          <Col xs={12} sm={8} md={4}>
-            <div className="text-center" style={{ display: 'flex', flexDirection: 'column' }}>
-              <img src={Logo} alt="Logo" style={{ width: '80px' }} />
-              <h2 style={{ color: 'white' }}>Forgot Password</h2>
+          <Col xs={12} sm={8} md={6}>
+            <div
+              className="text-center"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '20px',
+                borderRadius: '10px',
+                background: 'rgba(255, 255, 255, 0.8)',
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
+                <img src={Logo} alt="Logo" style={{ width: '80px', marginRight: '20px' }} />
+                <div>
+                  <h2 style={{ color: 'black', marginBottom: '5px' }}>Recover Password</h2>
+                  {/* You can add a subtitle here if needed */}
+                </div>
+              </div>
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -49,8 +66,8 @@ const ForgotPassword = () => {
               >
                 <Form>
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label" style={{ color: 'white' }}>
-                      Enter Email 
+                    <label htmlFor="email" className="form-label">
+                      Enter Email
                     </label>
                     <Field
                       type="email"

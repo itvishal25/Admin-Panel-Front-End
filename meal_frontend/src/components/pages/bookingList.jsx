@@ -1,5 +1,13 @@
+
 import React from 'react';
 import '../styles/style.css'
+import React from 'react'
+
+import { Container, Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
+import '../styles/style.css';
+import withNavbar from '../HOC/withNavbar';
+// import CustomNavbar from '../widgets/Navbar/navbar';
+
 
 const BookingList = () => {
   return (
@@ -69,7 +77,10 @@ const BookingList = () => {
         </select>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default BookingList;
+
+export default bookingList
+
