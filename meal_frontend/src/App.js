@@ -24,6 +24,7 @@ import EmployeeTable from './components/TablesData/employeeTable';
 import NonEmployeeTable from './components/TablesData/nonEmployeeTable';
 import NewEmployeeTable from './components/TablesData/newEmployeeTable';
 import Buffer from './components/pages/buffer';
+import Demo from './components/Demo/Demo';
 
 const App = () => {
   
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/employeeTable" element={<EmployeeTable />} />
           <Route path="/nonEmployeeTable" element={<NonEmployeeTable />} />
           <Route path="/addEmployeeTable" element={<NewEmployeeTable />} />
+          <Route path="/demo" element={<Demo/>} />
 
         
         </Routes>

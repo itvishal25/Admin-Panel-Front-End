@@ -11,7 +11,7 @@ import "./navbar.css";
 import { BsList } from "react-icons/bs";
 import PopupBox from '../../pages/buffer'; // Import PopupBox component
 
-const CustomNavbar = () => {
+const CustomNavbar =  () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [showBufferPopup, setShowBufferPopup] = useState(false); // New state for Buffer Popup

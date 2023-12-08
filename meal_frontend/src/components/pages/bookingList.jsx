@@ -2,7 +2,12 @@
 import React from 'react';
 import '../styles/style.css'
 import React from 'react'
+import withNavbar from '../HOC/withNavbar'
 
+const bookingList = () => {
+  return (
+    <div>
+      
 import { Container, Row, Col, Tabs, Tab, Button } from 'react-bootstrap';
 import '../styles/style.css';
 import withNavbar from '../HOC/withNavbar';
@@ -76,11 +81,16 @@ const BookingList = () => {
           {/* Add more months as needed */}
         </select>
       </div>
+
     </div>
   )
 }
 
+
+export default withNavbar(bookingList)
+
 export default BookingList;
 
 export default bookingList
+
 
