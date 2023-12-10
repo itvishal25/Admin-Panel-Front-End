@@ -51,16 +51,18 @@ body {
 }
 
 /* Other icons and user styles */
-.bellIcon {
-  width: 25px;
-  height: 25px;
+/* Other icons and user styles */
+.bellIcon,
+.user-icon {
+  width: 25px; /* Adjust icon width */
+  height: 25px; /* Adjust icon height */
   margin-right: 10px;
-  color:#fff;
+  color: #fff;
 }
 
 .user-icon {
-  width: 30px;
-  height: 30px;
+  width: 30px; /* Adjust user icon width */
+  height: 30px; /* Adjust user icon height */
   border-radius: 50%;
   margin-right: 5px;
   background-color: white;
@@ -81,7 +83,28 @@ body {
   .nav-link {
     margin-top: 10px;
   }
+
+  .bellIcon,
+  .user-icon {
+    width: 20px; /* Adjust icon size for smaller screens */
+    height: 20px;
+  }
+
+  .user-icon {
+    width: 25px; /* Adjust user icon size for smaller screens */
+    height: 25px;
+  }
 }
+
+.hamburger-icon {
+  color: white;
+  font-size: 1.5rem; /* Adjust the size as needed */
+}
+
+  .nav-link {
+    margin-top: 10px;
+  }
+
 
 
 .hamburger-icon {

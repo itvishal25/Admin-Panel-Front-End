@@ -1,7 +1,6 @@
 // withSidebar.js
 import React from 'react';
-import Sidebar from '../widgets/Sidebar/sidebar'; // Import the Sidebar component
-
+import Sidebar from '../widgets/Sidebar/sidebar'; 
 const withSidebar = (Component) => {
   return (props) => {
     return (
