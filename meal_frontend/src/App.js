@@ -13,17 +13,16 @@ import Footer from './components/widgets/Footer/footer';
 // import Employees from './components/pages/employees';
 // import NewEmp from './components/pages/newEmp';
 // import NonEmployees from './components/pages/nonEmployees';
-import BookingList from './components/pages/bookingList';
 import Logout from './components/pages/logout';
 import ForgotPassword from './components/pages/forgotpassword';
 import Calendar from './components/Home/calendar/calendar';
 
 // Mode
-import NewBooking from './components/Booking/newBooking';
 import EmployeeTable from './components/TablesData/employeeTable';
 import NonEmployeeTable from './components/TablesData/nonEmployeeTable';
-import NewEmployeeTable from './components/TablesData/newEmployeeTable';
-import Buffer from './components/pages/buffer';
+import BookingListForm from './components/Bookings/bookingListForm';
+import DataVisualize from './components/pages/dataVisualize';
+import DisableDate from './components/Home/calendar/disableDates';
 
 const App = () => {
   
@@ -39,10 +38,7 @@ const App = () => {
           {/* <Route path="/employees" element={<Employees />} /> */}
           {/* <Route path="/newEmp" element={<NewEmp />} /> */}
           {/* <Route path="/nonEmployees" element={<NonEmployees />} /> */}
-          <Route path="/bookingList" element={<BookingList />} />
-          <Route path="/newBooking" element={<NewBooking />} />
           <Route path="/calendar" element={<Calendar />} />
-          <Route path="/buffer" element={<Buffer />} />
 
           <Route path="/navbar" element={<CustomNavbar />} />
           <Route path="/sidebar" element={<Sidebar />} />
@@ -50,10 +46,11 @@ const App = () => {
           <Route path="/footer" element={<Footer />} />
 
           {/* For table data */}
-
+          <Route path="/bookingListForm" element={<BookingListForm />} />
+          <Route path="/data" element={<DataVisualize />} />
+          <Route path="/disableDate" element={<DisableDate />} />
           <Route path="/employeeTable" element={<EmployeeTable />} />
           <Route path="/nonEmployeeTable" element={<NonEmployeeTable />} />
-          <Route path="/addEmployeeTable" element={<NewEmployeeTable />} />
 
         
         </Routes>

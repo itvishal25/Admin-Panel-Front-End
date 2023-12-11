@@ -1,16 +1,21 @@
 /* style.css */
 
-.full-line {
-  width: 100%;
-  border-top: 1px solid #ddd;
-  margin-top: 10px;
-  margin-bottom: 20px;
+.nav-tabs .nav-link {
+  background-color: transparent;
 }
 
+
+/* Optionally, you can add this CSS to change the appearance when active */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  background-color: #007bff; /* Change to your preferred active background color */
+  color: #fff; /* Change to your preferred active text color */
+}
 .add-booking-button {
   position: relative;
   top: 130px; /* Adjust the top distance as needed */
   left: 90%; /* Adjust the right distance as needed */
+
 }
 
 /* Responsive Styles */
@@ -144,3 +149,109 @@
 .booking-table tbody tr:hover {
   background-color: #f5f5f5;
 }
+
+/* Add this to your CSS file or style block */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+thead {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li {
+  margin-right: 5px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: #85a6bb;
+  color: #ffffff;
+  border: 1px solid #3498db;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #297fb8;
+}
+
+.active button {
+  background-color: #297fb8;
+}
+
+/*Data Visualize*/
+.data-visualize-box-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  z-index: 1; /* Ensure the container is above other elements */
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+}
+
+.data-visualize-box {
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px; /* Increase padding for a bigger box */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: relative;
+  text-align: center; /* Center text horizontally */
+}
+
+.data-visualize-box .icon {
+  margin-bottom: 10px; /* Move the icon below the text */
+}
+
+.data-visualize-box h1 {
+  margin: 0; /* Reset margin */
+}
+
+.data-visualize-box:nth-child(1) {
+  background-color: #3498db; /* Blue */
+}
+
+.data-visualize-box:nth-child(2) {
+  background-color: #2ecc71; /* Green */
+}
+
+.data-visualize-box:nth-child(3) {
+  background-color: #f39c12; /* Orange */
+}
+
+.data-visualize-box:nth-child(4) {
+  background-color: #e74c3c; /* Red */
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
